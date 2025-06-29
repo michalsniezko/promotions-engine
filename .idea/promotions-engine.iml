@@ -68,6 +68,18 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/var" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/masterminds" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/staabm" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/theseer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
