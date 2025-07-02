@@ -94,6 +94,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/mysql" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
