@@ -15,5 +15,4 @@ class ServiceTestCase extends WebTestCase
 
         $this->container = static::createClient()->getContainer();
     }
-
 }
