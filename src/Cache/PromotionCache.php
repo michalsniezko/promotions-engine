@@ -6,10 +6,14 @@ use App\Entity\Product;
 use App\Repository\PromotionRepository;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class PromotionCache
 {
-    public function __construct(private CacheInterface $cache, private PromotionRepository $promotionRepository)
+    public function __construct(
+        private readonly CacheInterface $cache,
+        private readonly PromotionRepository $promotionRepository
+    )
     {
     }
 
@@ -20,7 +24,8 @@ class PromotionCache
     {
         $key = sprintf("valid-for-product-%s", $product->getId());
 
-        return $this->cache->get($key, function () use ($product, $requestDate) {
+        return $this->cache->get($key, function (ItemInterface $item) use ($product, $requestDate) {
+            $item->expiresAfter(3600);
             return $this->promotionRepository->findValidForProduct(
                 $product,
                 date_create_immutable($requestDate)
