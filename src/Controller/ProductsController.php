@@ -9,7 +9,6 @@ use App\Repository\ProductRepository;
 use App\Service\Serializer\DTOSerializer;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -34,17 +33,10 @@ class ProductsController extends AbstractController
         PromotionCache $promotionCache
     ): Response
     {
-        if($request->headers->has('force_fail')) {
-            return new JsonResponse(
-                ['error' => 'Promotions Engine failure message'],
-                $request->headers->get('force_fail')
-            );
-        }
-
         /** @var LowestPriceEnquiry $lowestPriceEnquiry */
         $lowestPriceEnquiry = $serializer->deserialize($request->getContent(), LowestPriceEnquiry::class, 'json');
 
-        $product = $this->repository->find($id);
+        $product = $this->repository->findOrFail($id);
 
         $lowestPriceEnquiry->setProduct($product);
 
