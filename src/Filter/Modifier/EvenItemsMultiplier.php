@@ -4,7 +4,6 @@ namespace App\Filter\Modifier;
 
 use App\DTO\PromotionEnquiryInterface;
 use App\Entity\Promotion;
-use App\Filter\Modifier\PriceModifierInterface;
 
 class EvenItemsMultiplier implements PriceModifierInterface
 {
@@ -15,10 +14,8 @@ class EvenItemsMultiplier implements PriceModifierInterface
             return $price * $quantity;
         }
 
-        // get the odd item if there is one
-        $oddCount = $quantity % 2; // 0 or 1
+        $oddCount = $quantity % 2;
 
-        // how many even items
         $evenCount = $quantity - $oddCount;
 
         return (($price * $evenCount) * $promotion->getAdjustment()) + ($oddCount * $price);
