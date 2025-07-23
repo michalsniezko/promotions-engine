@@ -21,7 +21,7 @@ class TimezoneController extends AbstractController
     public function currentTime(#[Timezone(default: 'Europe/Warsaw')] string $timezone): JsonResponse
     {
         $now = new DateTimeImmutable('now', new DateTimeZone($timezone));
-        $time = $now->format('Y-m-d H:i:s');
+        $time = $now->format('Y-m-d H:i');
 
         return new JsonResponse(['timezone' => $timezone, 'time' => $time]);
     }
